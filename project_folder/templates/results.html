@@ -1,0 +1,94 @@
+<!-- results.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .result-item {
+            margin-bottom: 20px;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .image-container img {
+            max-width: 100%;
+            max-height: 300px;
+        }
+        .images-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .image-wrapper {
+            width: 48%;
+            margin-bottom: 20px;
+        }
+        .image-wrapper h2 {
+            text-align: center;
+        }
+        .swap-message {
+            color: #f44336;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Results</h1>
+        <div class="result-item">
+            <p><strong>Name:</strong> {{ name }}</p>
+            <p><strong>Age:</strong> {{ age }}</p>
+            <p><strong>Date of Birth:</strong> {{ dob }}</p>
+            <p><strong>Aadhar Number:</strong> {{ adhar }}</p>
+            <p><strong>Address:</strong> {{ address }}</p>
+            <p><strong>Application Number:</strong> {{ app_number }}</p>
+
+            {% if swapping_done %}
+                <p class="swap-message">Fields were swapped!</p>
+            {% else %}
+                <p class="swap-message">No swapping was needed.</p>
+            {% endif %}
+
+            <div class="images-wrapper">
+                <div class="image-wrapper">
+                    <h2>Image</h2>
+                    <div class="image-container">
+                        <!-- Use the correct data URI syntax for the image -->
+                        <img src="data:image/{{ image_type }};base64,{{ image_data }}" alt="Image">
+                    </div>
+                </div>
+
+                <div class="image-wrapper">
+                    <h2>Signature</h2>
+                    <div class="image-container">
+                        <!-- Use the correct data URI syntax for the signature -->
+                        <img src="data:image/{{ signature_type }};base64,{{ signature_data }}" alt="Signature">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admit Card Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 400px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h1 {
+            text-align: center;
+            color: #333333;
+        }
+
+        .container form {
+            margin-top: 20px;
+        }
+
+        .container label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333333;
+        }
+
+        .container input[type="text"],
+        .container input[type="number"],
+        .container input[type="date"],
+        .container textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #cccccc;
+            border-radius: 3px;
+        }
+
+        .container input[type="file"] {
+            margin-top: 5px;
+        }
+
+        .container input[type="submit"] {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #4caf50;
+            color: #ffffff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+.swap-message {
+            color: red;
+            margin-top: 10px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        /* Caution messages */
+        .caution-message {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 5px;
+            display: none;
+        }
+    </style>
+	<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    
+</head>
+<body>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <div class="container">
+        <h1>Admit Card Application</h1>
+        <form action="{{ url_for('submit_form') }}" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" required>
+
+            <label for="age">Age:</label>
+            <input type="number" name="age" id="age" required>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" name="dob" id="dob" required>
+
+            <label for="adhar">Adhar Card Number:</label>
+            <input type="text" name="adhar" id="adhar" pattern="[0-9]{12}" required>
+            <small>Enter a 12-digit number</small>
+
+            <label for="address">Address:</label>
+            <textarea name="address" id="address" required></textarea>
+
+            <label for="app_number">Application Number:</label>
+            <input type="text" name="app_number" id="app_number" required>
+
+            <!-- ... (other HTML code) -->
+
+<label for="image">Image:</label>
+<input type="file" name="image" id="image" accept="image/*" onchange="checkFieldSwap()">
+<p id="image-caution" class="caution-message" style="display: none;">Please upload an image file for this field.</p>
+
+<label for="signature">Signature:</label>
+<input type="file" name="signature" id="signature" accept="image/*" onchange="checkFieldSwap()">
+<p id="signature-caution" class="caution-message" style="display: none;">Please upload a signature image for this field.</p>
+
+
+<!-- ... (other HTML code) -->
+
+
+            <input type="submit" value="Submit">
+        </form>
+        <p id="swap-message" class="swap-message"></p>
+		<script src="C:\Users\Nehat\Desktop\project_folder\static\js\script.js"></script>
+    </div>
+</body>
+</html>
